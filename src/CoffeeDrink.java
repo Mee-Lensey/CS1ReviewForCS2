@@ -7,7 +7,14 @@ class CoffeeDrink {
     boolean hasWhippedCream;
 
     // Constructor for CoffeeDrink class
-    public CoffeeDrink() {
+       public CoffeeDrink(int pnumberOfCups, String pflavor, boolean phasWhippedCream  ) {
+
+        numberOfCups= pnumberOfCups ;
+        flavor= pflavor;
+        hasWhippedCream= true;
+        // java defaults to the variable with the smallest scope
+        hasWhippedCream=phasWhippedCream;
+
         // TODO
         // Edit this constructor to accept three parameters,
         // one for each CoffeeDrink variable.
@@ -17,8 +24,16 @@ class CoffeeDrink {
     // Method to print information about the CoffeeDrink
     public void printInfo() {
         // TODO
-        // Make this method print order details.
-        // Include information stored in each variable.
+
+        System.out.print("You Ordered " + numberOfCups + " of " + flavor + " coffee ");
+
+        if(hasWhippedCream){
+            System.out.println("with Whipped Cream");
+
+        }else{
+            System.out.println(" without with cream.");
+
+        }
 
     }
 }

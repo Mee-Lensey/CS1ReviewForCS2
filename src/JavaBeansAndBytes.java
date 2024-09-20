@@ -1,5 +1,5 @@
-import java.sql.SQLOutput;
-import java.util.Random;
+import javax.print.DocFlavor;
+import java.util.Scanner;
 
 /**
  * CS2 Review Assignment!
@@ -13,7 +13,7 @@ public class JavaBeansAndBytes {
     String name;
     boolean isOpen;
     int yearFounded;
-    
+
 
     public static void main(String[] args) {
         // Create a new CoffeeShop instance to run everything.
@@ -53,15 +53,60 @@ public class JavaBeansAndBytes {
         CoffeeDrink drink1 = new CoffeeDrink(7,"vanilla", true);
         CoffeeDrink drink2 = new CoffeeDrink(20,"mocha", false);
         CoffeeDrink drink3 = new CoffeeDrink(10, "cappuccino", true);
+        CoffeeDrink drink4=new CoffeeDrink(49);
 
-
-        // TODO
+                // TODO
         // Print out the order details
         drink1.printInfo();
         drink2.printInfo();
+       // System.out.println(drink2.flavor);
+        //drink2.flavor = " caramel";
+        System.out.println("drink 2 flavor is " + drink2.getFlavor() );
+        drink2.setFlavor("caramel");
+        System.out.println("drink 2 flavor is " + drink2.getFlavor() );
+        drink3.printInfo();
+        drink4.printInfo();
 
 
-    } //
+        // customDrink();
+        returnTypes(5 ); // call returnTypes
+        System.out.println("***+" + returnTypes(5));
+
+        System.out.println(returnString());
+        System.out.println(returnDistance(2, 1, 3, 4));
+    } //end of constuctor
+    public double returnDistance(int x1, int y1, int x2, int y2 ){
+        double distance = Math.sqrt(Math.pow(x2-x1, 2) + Math.pow(y2-y1, 2) );
+        return distance;
+
+
+    }
+
+    public String returnString() {
+        String name = "Gary";
+        return name;
+    }
+
+
+    // public_type of variable we return_ nameOfMethod()
+    public int returnTypes(int a){ // returnTypes signature
+        System.out.println("returnTypes method");
+        System.out.println(a);
+        return a;
+
+    }
+
+    public void customDrink(){
+        //scanner for user input
+        Scanner scanner= new Scanner (System.in);
+
+        System.out.println(" How many cups do you want?");
+        int nCups = scanner.nextInt();
+        System.out.println(nCups);
+    }
+
+
+
 
     // Method to generate a random discount
     public void randomDiscount() {
@@ -71,6 +116,11 @@ public class JavaBeansAndBytes {
         int discount= (int)(Math.random()* 31);
         System.out.println("your random discount is " + discount + "%");
         //while loop for getting the best discount
+        while (discount<30) {
+            discount= (int)(Math.random()* 31);
+            System.out.println("your random discount is " + discount + "%");
+
+        }
     }
 
     // Method with a parameter for the special of the day
@@ -90,12 +140,24 @@ public class JavaBeansAndBytes {
 
         // Print 1 to 5
 
-        for ( int x=1; x<6; x=x+1) {
+        for ( int x=0; x<6; x=x+1) {
             System.out.print(x+ ", \n ");
+        }
+        int n =1;
+        while (n < 6) {
+            System.out.println(n);
+            n++;
         }
 
 
+
         // Print 2, 5, 8, 11
+
+        int y =2;
+        while (y < 13) {
+            System.out.println(y);
+            y=y+3;
+        }
 
         for ( int x=2; x<12; x=x+3) {
             System.out.print(x+ " , \n ");
@@ -103,11 +165,32 @@ public class JavaBeansAndBytes {
 
 
         // Print 8 to 0
+
+        int m =8;
+
+        while (m > -1) {
+            System.out.println("*"+m);
+            m=m-1;
+
+        }
         for ( int x=8; x>-1; x=x-1) {
             System.out.print(x+ ", \n");
         }
 
+        int p = 0;
+                while (true) {
+                    System.out.println(p);
+                    if (p>99){
+                        break; // ends the loop and the code continues after the loop
+                    }
+                    if( p % 5 == 0) { // print the multiples of 5
+
+                    }
+                    System.out.println(p);
+                    p ++;
+                }
     }
+
 
     // Method to recommend a coffee based on a random number
     public void baristasChoice() {
